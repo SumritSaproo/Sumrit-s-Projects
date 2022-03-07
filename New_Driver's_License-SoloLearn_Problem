@@ -1,0 +1,145 @@
+#include <stdio.h>
+int FindOrder (void);
+char my_name[30],pr1[30],pr2[30];
+char pr3[30],pr4[30];
+int n,order,e=1;
+
+int main() {
+    gets(my_name);
+  
+    scanf("%d",&n);
+   
+    scanf("%s %s %s %s",pr1,pr2,pr3,pr4);
+   
+   order=FindOrder();
+    if(order==0) {
+        /* my_name comes first
+        write logic here*/
+        printf("20");
+        return ;
+    }
+    if(order==1) {
+        /* pr1 first
+        write logic here*/
+        printf("20");
+        return ;
+    }
+    if(order==2) {
+        /* pr2 comes first*/
+        printf("20");
+        return;
+    }
+    if(order==3) {
+        /* pr3 first
+        write logic here*/
+        printf("20");
+        return;
+    }
+    if(order==4) {
+        /* pr4 first
+        write logic here*/
+        printf("20");
+        return;
+    }
+      if(n==5){
+          printf("20");
+          return;
+      }
+      if(n==4){
+          if(e==5){
+              printf("40");
+          }
+          else{
+              printf("20");
+          }
+          return;
+      }
+      
+       if(n==3){
+          if(e>=4){
+              printf("40");
+          }
+          else{
+              printf("20");
+          }
+          return;
+      }
+      
+       if(n==2){
+          if(e==3 && e==4){
+              printf("40");
+          }
+          else if(n==2){
+              printf("20");
+          }
+          else{
+              printf("60");
+          }
+            
+          return;
+      }
+      
+      if(n==1){
+          printf("%d",e*20);
+          return;
+      }
+
+
+}
+
+int FindOrder() {
+    int q=strcmp(my_name,pr1);
+    int p=strcmp(pr1,pr2);
+   int r=strcmp(pr2,pr3);
+   int s=strcmp(pr3,pr4);
+
+    if(q<0 && p<0) {
+        if(r<0 && s<0) {
+            return 0;
+        }
+    }
+
+    if(q>0 && pr1[0]<pr2[0]) {
+        if(pr1[0]<pr3[0] && pr1[0]<pr4[0]) {
+            return 1;
+        }
+    }
+
+
+
+
+    if(pr2[0]<pr1[0] && pr2[0]<my_name[0]) {
+        if(pr2[0]<pr3[0] && pr2[0]<pr4[0]) {
+            return 2;
+        }
+    }
+
+
+    if(pr3[0]<pr1[0] && pr3[0]<pr2[0]) {
+        if(pr3[0]<my_name[0] && pr3 [0]<pr4[0]) {
+            return 3;
+        }
+    }
+
+
+
+    if(pr4[0]<pr1[0] && pr4 [0]<pr2[0]) {
+        if(pr4[0]<pr3[0] && pr4[0]<my_name[0]) {
+            return 4;
+        }
+    }
+    if(my_name [0]>pr1[0]){
+        e++;
+    }
+     if(my_name [0]>pr2[0]){
+        e++;
+    }
+     if(my_name [0]>pr3[0]){
+        e++;
+    }
+     if(my_name [0]>pr4[0]){
+        e++;
+    }
+    
+
+}
